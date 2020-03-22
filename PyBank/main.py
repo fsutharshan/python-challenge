@@ -50,5 +50,13 @@ with open(csvpath,'r') as csvfile:
     print(f"Greatest Increase in Profits: {max_increase_month} (${(str(max_increase_value))})")
     print(f"Greatest Decrease in Profits: {max_decrease_month} (${(str(max_decrease_value))})")
 
-
-    
+    #Exporing to .txt file
+    outputfile = os.path.join("./","CompanyProfitLoss.txt")
+    file = open(outputfile, "w")
+    file.write("Financial Analysis" + "\n")
+    file.write("----------------------------" + "\n")
+    file.write("Number of Months" + str(number_of_months) + "\n")
+    file.write("Net Total Amount" + str(net_total_amount) + "\n")
+    file.write("Averange Change:" + "{:.2f}".format(total_change_in_revenue /(number_of_months-1)) + "\n")
+    file.write(f"Greatest Increase in Profits: {max_increase_month} (${(str(max_increase_value))})" + "\n")
+    file.write(f"Greatest Decrease in Profits: {max_decrease_month} (${(str(max_decrease_value))})" )
